@@ -1,0 +1,14 @@
+<svg width="510" height="110.00000000000001" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <rect id="svg_13" height="0" width="2.01342" y="383.8926" x="368.45636" stroke="#000" fill="#fff"/>
+  <g id="svg_1">
+   <g id="svg_37" stroke-opacity="0">
+    <path stroke-width="0" id="svg_31" d="m-0.24251,6.4048l67.86855,0.79902l20.20409,51.13137l-65.40045,-0.20107l-22.67219,-51.72932z" opacity="NaN" stroke="#0c0c00" fill="#ffff00"/>
+    <path stroke-width="0" id="svg_32" d="m0.56193,101.91887l64.28419,0.34743l22.54432,-45.39019l-65.02271,-0.44392l-21.8058,45.48668l-0.00001,0z" opacity="NaN" stroke="#0c0c00" fill="#bfbf00"/>
+   </g>
+   <text transform="matrix(4.2811, 0, 0, 4.16853, -1009.74, -808.495)" xml:space="preserve" text-anchor="start" font-family="'Roboto Mono'" font-size="24" id="svg_35" y="216.43399" x="239.82893" stroke-width="0" stroke="#000" fill="#000000">РroStart</text>
+  </g>
+ </g>
+
+</svg>
