@@ -1,8 +1,10 @@
+import { ChangeEventHandler } from "react";
 
 type FormFieldProps = {
   placeholder: string;
   id: string;
   type: string;
+  onChange: ChangeEventHandler<HTMLInputElement>
 };
 
 export default function FormField(props: FormFieldProps) {
@@ -12,6 +14,7 @@ export default function FormField(props: FormFieldProps) {
       id={`${props.id}`}
       type={`${props.type}`}
       placeholder={`${props.placeholder}`}
+      onChange={props.onChange}
     />
   );
 }

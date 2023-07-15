@@ -5,6 +5,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 type BtnProps ={
   text : string | null,
   action: CallableFunction,
+  disabled?: boolean
 }
 
 export default function Button(props: BtnProps) {
@@ -24,6 +25,8 @@ export default function Button(props: BtnProps) {
       className="bg-primary-color hover:bg-slate-200 hover:shadow-sm w-full text-black py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
       type="button"
       onClick={() => props.action()}
+
+      disabled={ props.disabled || false }
     >
       {props.text || "sign in"}
     </button>

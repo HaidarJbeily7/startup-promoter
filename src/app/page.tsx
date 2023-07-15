@@ -3,9 +3,11 @@ import { useRouter } from "next/navigation";
 
 export default function Home() {
 
-  // const router = useRouter()
+  const router = useRouter()
   // router.push('/products');
-
+  setTimeout(() => {
+    router.push('/products');
+  }, 1000);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
     
