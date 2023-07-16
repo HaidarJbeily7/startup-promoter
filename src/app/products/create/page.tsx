@@ -15,14 +15,15 @@ export default function ProductDetailsPage(props: any) {
     promoVideo: null,
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setProduct({ ...product, [e.target.name]: e.target.value });
   };
 
-  const [selectedFile, setSelectedFile] = useState();
-  const [previewSrc, setPreviewSrc] = useState();
+  const [selectedFile, setSelectedFile] =  useState<File | null>(null);
+  const [previewSrc, setPreviewSrc] = useState<string | ArrayBuffer | null>(null);
 
-  const handleFileChange = (event) => {
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
     const file = event.target.files[0];
     if (file && file.type.substr(0, 5) === "image") {
       setSelectedFile(file);
@@ -36,6 +37,7 @@ export default function ProductDetailsPage(props: any) {
     } else {
       setSelectedFile(null);
     }
+  }
   };
 
   const createNewProductObject = (product: any)=>{
@@ -55,7 +57,7 @@ export default function ProductDetailsPage(props: any) {
       }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(product);
     const newProduct:  Product =  createNewProductObject(product);
@@ -89,7 +91,7 @@ export default function ProductDetailsPage(props: any) {
                 {previewSrc && (
                   <div className="mt-4 flex justify-center">
                     <img
-                      src={previewSrc}
+                      src={previewSrc as string}
                       alt="Preview"
                       className="h-48 w-48 rounded-full"
                     />
@@ -118,7 +120,7 @@ export default function ProductDetailsPage(props: any) {
                 placeholder="Product Name"
                 onChange={handleChange}
               />
-              <textarea
+              <input
                 className="border p-2 mt-2 w-full rounded-xl shadow-xl min-h-[30vh]"
                 name="description"
                 placeholder="Product Description"

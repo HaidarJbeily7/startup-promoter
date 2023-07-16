@@ -15,9 +15,9 @@ const ProductsPage = async () => {
         {products.map((item) => (
           <ProductListingItem
             key={item.id}
-            itemId={item.id}
-            title={item.title}
-            imageUrl={item.logo}
+            itemId={item.id as number}
+            title={item.title as string}
+            imageUrl={item.logo as string}
           />
         ))}
       </main>
