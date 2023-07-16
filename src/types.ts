@@ -1,7 +1,7 @@
 export interface Product {
   id?: number;
   title?: string;
-  founders?: string[];
+  founders?: {name: string}[];
   developers?: string[];
   logo?: string; // URL of the image
   description?: string;

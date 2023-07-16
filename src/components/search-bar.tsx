@@ -1,9 +1,29 @@
 "use client";
-import { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import productStore from "@/store/productStore";
+import { useAtom } from "jotai";
+import { Product } from "@/types";
 const SearchBar = () => {
   const [isFocused, setIsFocused] = useState(false);
+  const [products, setProducts] = useAtom(productStore.productsAtom);
+  const [sProducts, setSProducts] = useAtom(productStore.serachProductsAtom);
+  const [searchValue, setSearchValue] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
 
+  useEffect(() => {
+    setSProducts(
+      products.filter((product) => {
+        if(searchValue === '')return true;
+        if (product.title){
+          return product.title.toLowerCase().includes(searchValue.toLowerCase());
+        }
+      })
+    );
+  }, [searchValue]);
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value);
+  };
   const handleFocus = () => {
     setIsFocused(true);
   };
@@ -47,6 +67,8 @@ const SearchBar = () => {
         </div>
         <input
           type="text"
+          value={searchValue}
+          onChange={handleSearch}
           className={`block p-2 w-full text-gray-900 bg-gray-50 rounded-3xl border border-gray-300 ${
             isFocused ? "pl-3" : "pl-10"
           }`}
