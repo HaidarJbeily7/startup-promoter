@@ -43,7 +43,7 @@ const RegisterPage = () => {
           <FormField
             id="email"
             type="text"
-            placeholder="Неверный адрес почты"
+            placeholder="Введите адрес почты"
             onChange={(e) => setEmail(e.target.value)}
           />
 
