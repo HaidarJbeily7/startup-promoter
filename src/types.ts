@@ -1,16 +1,16 @@
 export interface Product {
-  id: number;
-  title: string;
-  founders: string[];
-  developers: string[];
-  logo: string; // URL of the image
-  description: string;
-  existing_problems: string;
-  problem_solving: string;
-  product_expectations: string;
-  tags: Tag[];
-  promo_video: string; // URL of the video
-  website: string; // URL of the website
+  id?: number;
+  title?: string;
+  founders?: string[];
+  developers?: string[];
+  logo?: string; // URL of the image
+  description?: string;
+  existing_problems?: string;
+  problem_solving?: string;
+  product_expectations?: string;
+  tags?: Tag[];
+  promo_video?: string; // URL of the video
+  website?: string; // URL of the website
 }
 
 export interface SocialMedia {

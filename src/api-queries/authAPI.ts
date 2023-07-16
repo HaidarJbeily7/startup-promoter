@@ -14,12 +14,13 @@ export class AuthAPI extends AbstractAPI {
   }
   async me(params: {token: string}) {
     try {
-        const res = await axios.post(this.BASE_URL + "/auth/me/", null, {
+        const res = await axios.get(this.BASE_URL + "/auth/me/", {
           headers: {
             Authorization: `Token ${params.token}`,
           },
         });
-        return res.data[0];
+        console.dir(res)
+        return res.data;
       } catch (error) {
         // Handle errors
         console.error(error);

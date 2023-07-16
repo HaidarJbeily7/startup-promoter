@@ -8,4 +8,11 @@ export class ProductAPI extends AbstractAPI {
     const res = await axios.get(this.BASE_URL + "/products/");
     return res.data;
   }
+
+  async add(params:Product) {
+    const res = await axios.post(this.BASE_URL + "/products/", params);
+    console.dir(res)
+    return res;
+  }
+
 }

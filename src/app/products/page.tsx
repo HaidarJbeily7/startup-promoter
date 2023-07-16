@@ -5,7 +5,7 @@ import { ProductAPI } from "@/api-queries/productAPI";
 
 const ProductsPage = async () => {
   const products = await new ProductAPI().getAll();
-  console.dir(products);
+  
   return (
     <>
       <NavBar />

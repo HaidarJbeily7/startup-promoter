@@ -1,27 +1,46 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import userAtom from "@/store/userStore";
 import { useAtom } from "jotai";
 import Link from "next/link";
-
-
+import { AuthAPI } from "@/api-queries/authAPI";
+import { User } from "@/types";
 
 export default function Avatar() {
-    const [isUserMenuHidden, setIsUserMenuHidden] = useState(true);
-    const [user, _] = useAtom(userAtom);
-    console.dir(user)
-    if(!user){
+  const [isUserMenuHidden, setIsUserMenuHidden] = useState(true);
+  const [user, setUser] = useAtom(userAtom);
 
-        return (
-            <>
-                <Link href="/auth/login" className="bg-primary-color outline-none p-2 rounded-3xl">
-                 Sign in
-                </Link>
-            </>
-        )
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+  };
 
+  useEffect(() => {
 
-    }
+    const token: string = localStorage.getItem("token") || "" as string;
+    if(token === "")
+    return;
+    const fetcher = async (token: string) => {
+      const res = await new AuthAPI().me({ token: token });
+      setUser(res);
+    };
+    const user = fetcher(token);
+    
+  }, []);
+  if (!user) {
+  }
 
+  if (!user) {
+    return (
+      <>
+        <Link
+          href="/auth/login"
+          className="bg-primary-color outline-none p-2 rounded-3xl"
+        >
+          Sign in
+        </Link>
+      </>
+    );
+  }
 
   return (
     <div className="flex items-center md:order-2 relative">
@@ -65,28 +84,28 @@ export default function Avatar() {
       >
         <div className="px-4 py-3">
           <span className="block text-sm text-gray-900 dark:text-white">
-            Haidar Jbeily
+            Your Account
           </span>
           <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
-            h.Jbeily@innopolis.university
+            {user.email}
           </span>
         </div>
         <ul className="py-2" aria-labelledby="user-menu-button">
           <li>
-            <a
-              href="#"
+            <Link
+              href="/products/create"
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
             >
-              Profile
-            </a>
+              Add New Product
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <button
+              onClick={handleLogout}
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
             >
               Sign out
-            </a>
+            </button>
           </li>
         </ul>
       </div>
