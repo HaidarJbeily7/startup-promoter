@@ -36,7 +36,7 @@ export default function Avatar() {
           href="/auth/login"
           className="bg-primary-color outline-none p-2 rounded-3xl"
         >
-          Sign in
+          Регистрация
         </Link>
       </>
     );

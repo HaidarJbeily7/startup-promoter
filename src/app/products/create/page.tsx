@@ -47,7 +47,7 @@ export default function ProductDetailsPage(props: any) {
       return {
         id : product.id || null,
         title: product.title || null,
-        founders: [product.founders] || null,
+        founders: product.founders ? product.founders.split(',').map((name: string) => ({ name })) : null,
         developers: [product.developers] || null,
         logo: product.logo || null,
         description: product.description || null,
@@ -83,7 +83,7 @@ export default function ProductDetailsPage(props: any) {
                 >
                   <BsUpload className="w-6 h-6" />
                   <span className="ml-2 text-base leading-normal">
-                    Select a logo
+                  Выбрать логотип
                   </span>
                   <input
                     type="file"
@@ -107,13 +107,13 @@ export default function ProductDetailsPage(props: any) {
                 <input
                   className="border p-2 w-full rounded-xl shadow-xl"
                   name="founders"
-                  placeholder="Founder Name"
+                  placeholder="Основатели"
                   onChange={handleChange}
                 />
                 <input
                   className="border p-2 mt-8 w-full rounded-xl shadow-xl"
                   type="text"
-                  placeholder="promoVideo"
+                  placeholder="Промо видео"
                   onChange={handleChange}
                 />
               </div>
@@ -122,20 +122,20 @@ export default function ProductDetailsPage(props: any) {
               <input
                 className="border p-2 w-full rounded-xl shadow-xl"
                 name="title"
-                placeholder="Product Name"
+                placeholder="Название продукта"
                 onChange={handleChange}
               />
               <input
                 className="border p-2 mt-2 w-full rounded-xl shadow-xl min-h-[30vh]"
                 name="description"
-                placeholder="Product Description"
+                placeholder="Описание продукта"
                 onChange={handleChange}
               />
               <button
                 className="border p-2 mt-2 w-full rounded-xl shadow-xl"
                 type="submit"
               >
-                Save
+                Сохранить
               </button>
             </div>
           </form>

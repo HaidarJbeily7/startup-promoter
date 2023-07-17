@@ -77,7 +77,7 @@ const RegisterPage = () => {
         </form>
         {error && <p className="text-red-500">{error}</p>}
         {isRegisterCompleted && (
-        <Link href="/auth/login" className="p-4 bg-slate-300 rounded-2xl">Registration Completed -&gt; login!</Link>)}
+        <Link href="/auth/login" className="p-4 bg-slate-300 rounded-2xl">Регистрация!</Link>)}
       </div>
     </main>
   );
