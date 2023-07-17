@@ -2,13 +2,16 @@
 import { ProductAPI } from "@/api-queries/productAPI";
 import NavBar from "@/components/navbar";
 import { Product } from "@/types";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { BsUpload } from 'react-icons/bs';
 
 
 export default function ProductDetailsPage(props: any) {
+
+  const router = useRouter();
   const [product, setProduct] = useState({
-    name: "",
+    title: "",
     description: "",
     logo: null,
     founders: "",
@@ -63,6 +66,8 @@ export default function ProductDetailsPage(props: any) {
     const newProduct:  Product =  createNewProductObject(product);
     const productAPI = new ProductAPI();
     productAPI.add(newProduct)
+    router.push('/products')
+    router.refresh()
   };
 
   return (
@@ -116,7 +121,7 @@ export default function ProductDetailsPage(props: any) {
             <div>
               <input
                 className="border p-2 w-full rounded-xl shadow-xl"
-                name="name"
+                name="title"
                 placeholder="Product Name"
                 onChange={handleChange}
               />

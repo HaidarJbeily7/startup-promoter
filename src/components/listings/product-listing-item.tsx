@@ -15,7 +15,7 @@ const ProductListingItem: React.FC<ProductListingItemProps> = ({
 }) => {
   const [isLoved, setIsLoved] = useState(false);
   const router = useRouter()
-  const handleLoveClick = (e: React.ChangeEvent<HTMLButtonElement>) => {
+  const handleLoveClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation()
     setIsLoved(!isLoved);
   };
