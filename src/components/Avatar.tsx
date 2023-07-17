@@ -61,7 +61,7 @@ export default function Avatar() {
               height="20"
               alt="user photo"
             /> */}
-        <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+        <div className="relative w-10 h-10 overflow-hidden rounded-full bg-gray-600">
           <svg
             className="absolute w-12 h-12 text-gray-400 -left-1"
             fill="currentColor"
@@ -83,10 +83,10 @@ export default function Avatar() {
         id="user-dropdown"
       >
         <div className="px-4 py-3">
-          <span className="block text-sm text-gray-900 dark:text-white">
+          <span className="block text-sm text-white">
           Аккаунт
           </span>
-          <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
+          <span className="block text-sm  truncate text-gray-400">
             {user.email}
           </span>
         </div>
@@ -94,7 +94,7 @@ export default function Avatar() {
           <li>
             <Link
               href="/products/create"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+              className="block px-4 py-2 text-sm t hover:bg-gray-600 text-gray-200 hover:text-white"
             >
               Создать продук
             </Link>
@@ -102,7 +102,7 @@ export default function Avatar() {
           <li>
             <button
               onClick={handleLogout}
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+              className="block px-4 py-2 text-sm  hover:bg-gray-600 text-gray-200 hover:text-white"
             >
               выйти
             </button>
