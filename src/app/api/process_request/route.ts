@@ -31,8 +31,9 @@ export async function POST(req: NextRequest) {
     const completion = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: `${prompt}`,
+        max_tokens:2000,
     });
-    console.log(completion.data.choices)
+    console.log(completion.data)
     const gptResponseMessage = completion.data.choices[0].text
     return new NextResponse(JSON.stringify({message: gptResponseMessage}));
 }
