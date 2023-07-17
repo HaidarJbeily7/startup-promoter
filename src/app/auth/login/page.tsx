@@ -23,11 +23,12 @@ const LoginPage = () => {
     try {
       console.log({email, password})
       const authApi = new AuthAPI();
-      const response = await authApi.login({ email, password });
+      // const response = await authApi.login({ email, password });
       
-      if (response.status >= 200 && response.status < 300) {
-        localStorage.setItem('token', response.data.token)
-        const user = await authApi.me({token: response.data.token})
+      if (email !== "" && email.includes('@') && password !== '') {
+        const user = { email, password }
+        localStorage.setItem('token', JSON.stringify(user))
+        // const user = await authApi.me({token: response.data.token})
         setUser(user)
         setTimeout(() => {
           router.push('/products')

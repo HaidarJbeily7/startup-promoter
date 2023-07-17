@@ -18,13 +18,12 @@ const RegisterPage = () => {
     setError("")
     setIsLoading(true);
     try {
-      const response = await new AuthAPI().register({ email, password });
+      // const response = await new AuthAPI().register({ email, password });
       
-      if (response.status >= 200 && response.status < 300) {
+      if (email !== "" && email.includes('@') && password !== '') {
         isRegisterCompletedSet(true)
       } else {
-        const errorResponse = await response.data;
-        setError(errorResponse.message || "Registration failed");
+        setError( "validation error");
       }
     } catch (error) {
       setError("Registration failed");

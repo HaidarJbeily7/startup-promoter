@@ -20,8 +20,8 @@ export default function Avatar() {
     if(token === "")
     return;
     const fetcher = async (token: string) => {
-      const res = await new AuthAPI().me({ token: token });
-      setUser(res);
+
+      setUser(JSON.parse(token));
     };
     const user = fetcher(token);
     

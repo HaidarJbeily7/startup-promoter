@@ -47,6 +47,14 @@ export default function NavBar() {
                   Вакансии
                 </Link>
               </li>
+              <li>
+                <Link
+                    href="/chat"
+                    className={`block py-2 pl-3 pr-4 rounded bg-transparent  md:p-0 ${pathname == '/chat' ? ' text-font-bold-color':'text-font-primary-color'}`}
+                >
+                  ИИ ассистент
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
