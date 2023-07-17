@@ -1,14 +1,18 @@
 "use client"
-import {useState} from 'react';
+import React, {useState} from 'react';
 import NavBar from "@/components/navbar";
 
+type Message = {
+    text: string;
+    role: string;
+  };
 
 export default function ChatPage() {
-    const [messages, setMessages] = useState([]);
+    const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState('');
-    const [action, setAction] = useState('start_chat');
+    const [action, setAction] = useState('title_gen');
 
-    async function sendMessage(e) {
+    async function sendMessage(e: React.FormEvent) {
         e.preventDefault();
 
         setMessages([...messages, {text: input, role: 'user'}]);

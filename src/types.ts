@@ -41,9 +41,8 @@ export interface Tag {
 }
 
 export interface User {
-  id: number;
   email: string;
-  photo: string | null;
+  password: string;
 }
 
 

@@ -72,7 +72,7 @@ const SearchBar = () => {
           className={`block p-2 w-full text-gray-900 bg-gray-50 rounded-3xl border border-gray-300 ${
             isFocused ? "pl-3" : "pl-10"
           }`}
-          placeholder="Search Here..."
+          placeholder="Поиск..."
           onFocus={handleFocus}
           onBlur={handleBlur}
         />

@@ -34,8 +34,7 @@ const LoginPage = () => {
           router.push('/products')
         }, 300);
       } else {
-        const errorResponse = await response.data;
-        setError(errorResponse.message || "Login failed");
+        setError( "Login failed");
       }
     } catch (error) {
       setError("Login failed");
