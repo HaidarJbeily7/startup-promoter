@@ -94,9 +94,9 @@ export default function Avatar() {
           <li>
             <Link
               href="/products/create"
-              className="block px-4 py-2 text-sm t hover:bg-gray-600 text-gray-200 hover:text-white"
+              className="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white"
             >
-              Создать продук
+              Создать продукт
             </Link>
           </li>
           <li>
